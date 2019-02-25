@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 //Variables
 var intervalId;
 var number = 15;
@@ -49,19 +51,23 @@ $("input:checkbox").on('click', function() {
   }
 });
 
-$( "input" ).on( "click", function() {
-  $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
+  $("input").one("click", function () {
+    $("#log").html($("input:checked").val() + " is checked!");
 
-  if(document.getElementById('myCheck1').checked) {
-    console.log("you are the bomb");
-  }else if(document.getElementById('myCheck2').checked) {
-    console.log("you lost");
-  }
-  else if(document.getElementById('myCheck3').checked){
-    console.log("you lost");
-  }
-  
-});
+    if (document.getElementById('myCheck1' || 'myCheck4' || 'myCheck7' || 'myCheck11' || 'myCheck15' || 'myCheck16' || 'myCheck20' || 'myCheck24' || 'myCheck25').checked) {
+      correct++;
+      console.log("correct " + correct);
+    } else if (document.getElementById('myCheck2' || 'myCheck3' || 'myCheck5' || 'myCheck6' || 'myCheck8' || 'myCheck9' || 'myCheck10' || 'myCheck12' || 'myCheck14' || 'myCheck13' || 'myCheck17' || 'myCheck18' || 'myCheck19' || ' myCheck21' || 'myCheck22' || 'myCheck23' || 'myCheck26'|| 'myCheck27').checked) {
+      incorrect++
+      console.log("incorrect " + incorrect);
+    }
+
+    // else if(document.getElementById('myCheck4').checked){
+    //   correct++
+    //   console.log("incorrect" + incorrect);
+    // }
+
+  });
 
 
 //  The stop function
@@ -73,12 +79,11 @@ function stop() {
   clearInterval(intervalId);
 }
 
-function InsertingQuestions() {
 
-}
 
 $("#donebtn").on("click", function () {
-  capturingvalues();
+  $("form").addClass("hidden");
+
 });
 
 $("#startbtn").on("click", function () {
@@ -89,7 +94,7 @@ $("#startbtn").on("click", function () {
   restart();
 });
 
-
+});
 
 
 
