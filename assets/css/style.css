@@ -2,9 +2,15 @@ body{
 
 }
 
+form{
+    text-align: center;
+}
 
 #title{
     text-align: center;
-    color: white;
+    color: #ffffff;
 }
 
+.hidden {
+    display: none;
+}
