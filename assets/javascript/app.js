@@ -2,29 +2,33 @@ $(document).ready(function () {
 
 //Variables
 var intervalId;
-var number = 150;
+var number = 60;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 var correctanswers =
 
-//Hidden the form when the page loads.
+//Hidden the form and div when the page loads.
 $("form").addClass("hidden");
 $(".results").addClass("hidden");
 
 
-
 //Timer
-
 function timer() {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
 }
 
+//  The stop function
+function stop() {
+  //  Clears the intervalId
+  clearInterval(intervalId);
+}
+
 function decrement() {
   //  Decrease number by one.
   number--;
-  //  Show the number in the #show-number tag.
+  //  Show the number in the #time-left tag.
   $("#time-left").html("<h2>" + number + "</h2>");
   //  Once number hits zero...
   if (number === 0) {
@@ -32,18 +36,20 @@ function decrement() {
     stop();
     //  Alert the user that time is up.
     alert("Time Up!");
+    $("form").hide();
+    $(".results").show();
   }
 }
 
 function restart(){
-  number = 150;
+  number = 60;
   $("form").show();
   $(".results").addClass("hidden");
   $(".results").hide();
   timer();
 }
 
-//let me choose only one checkbox.
+//Allowing to choose only one checkbox.
 $("input:checkbox").on('click', function() {
   // in the handler, 'this' refers to the box clicked on
   var $box = $(this);
@@ -61,37 +67,34 @@ $("input:checkbox").on('click', function() {
   }
 });
 
-
-
   $("input").one("click", function () {
-    //$("#log").html($("input:checked").val() + " is checked!");
+    //var correctopt = document.querySelectorAll("#myCheck1, #myCheck4").checked;
+    //var wrongopt = document.querySelectorAll("#myCheck2, #myCheck4, #myCheck3, #myCheck5, #myCheck6");
+    // if (document.querySelectorAll("#myCheck1, #myCheck4").checked) {
+    //   correct++;
+    //   console.log("correct " + correct);
+    // }
 
+    // else if (document.querySelectorAll("#myCheck2, #myCheck4, #myCheck3, #myCheck5, #myCheck6")){
+    //   incorrect++;
+    //   console.log("incorrect " + incorrect);
+    // }
+
+    //$("#log").html($("input:checked").val() + " is checked!");
     if (document.getElementById('myCheck1').checked) {
       correct++;
       console.log("correct " + correct);
     } else if (document.getElementById('myCheck2').checked) {
       incorrect++;
-        console.log("incorrect " + incorrect);
-      }
-    // else if (document.getElementById ('myCheck3').checked){
-    //   incorrect++;
-    //   console.log("incorrect " + incorrect);
-    // }
-   else if (document.getElementById('myCheck3').checked) {
-    incorrect++;
       console.log("incorrect " + incorrect);
     }
+    else if (document.getElementById('myCheck3').checked) {
+      incorrect++;
+      console.log("incorrect " + incorrect);
+    }
+    console.log(correct);
+    console.log(incorrect);
   });
-
-//  The stop function
-function stop() {
-  //  Clears our intervalId
-  //  We just pass the name of the interval
-  //  to the clearInterval function.
-  clearInterval(intervalId);
-}
-
-
 
 $("#donebtn").on("click", function () {
   $("form").hide();
@@ -110,7 +113,6 @@ $("#startbtn").on("click", function () {
 $("#restartbtn").on("click",function (){
 restart();
 });
-
 
 });
 
