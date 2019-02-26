@@ -2,19 +2,19 @@ $(document).ready(function () {
 
 //Variables
 var intervalId;
-var number = 15;
+var number = 150;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
+var correctanswers =
 
 //Hidden the form when the page loads.
 $("form").addClass("hidden");
+$(".results").addClass("hidden");
+
 
 
 //Timer
-function restart() {
-  $("#startbtn").addClass("hidden");
-}
 
 function timer() {
   clearInterval(intervalId);
@@ -35,6 +35,15 @@ function decrement() {
   }
 }
 
+function restart(){
+  number = 150;
+  $("form").show();
+  $(".results").addClass("hidden");
+  $(".results").hide();
+  timer();
+}
+
+//let me choose only one checkbox.
 $("input:checkbox").on('click', function() {
   // in the handler, 'this' refers to the box clicked on
   var $box = $(this);
@@ -46,33 +55,36 @@ $("input:checkbox").on('click', function() {
     // and the current value is retrieved using .prop() method
     $(group).prop("checked", false);
     $box.prop("checked", true);
+    console.log(group);
   } else {
     $box.prop("checked", false);
   }
 });
 
-  $("input").one("click", function () {
-    $("#log").html($("input:checked").val() + " is checked!");
 
-    if (document.getElementById('myCheck1' || 'myCheck4' || 'myCheck7' || 'myCheck11' || 'myCheck15' || 'myCheck16' || 'myCheck20' || 'myCheck24' || 'myCheck25').checked) {
+
+  $("input").one("click", function () {
+    //$("#log").html($("input:checked").val() + " is checked!");
+
+    if (document.getElementById('myCheck1').checked) {
       correct++;
       console.log("correct " + correct);
-    } else if (document.getElementById('myCheck2' || 'myCheck3' || 'myCheck5' || 'myCheck6' || 'myCheck8' || 'myCheck9' || 'myCheck10' || 'myCheck12' || 'myCheck14' || 'myCheck13' || 'myCheck17' || 'myCheck18' || 'myCheck19' || ' myCheck21' || 'myCheck22' || 'myCheck23' || 'myCheck26'|| 'myCheck27').checked) {
-      incorrect++
+    } else if (document.getElementById('myCheck2').checked) {
+      incorrect++;
+        console.log("incorrect " + incorrect);
+      }
+    // else if (document.getElementById ('myCheck3').checked){
+    //   incorrect++;
+    //   console.log("incorrect " + incorrect);
+    // }
+   else if (document.getElementById('myCheck3').checked) {
+    incorrect++;
       console.log("incorrect " + incorrect);
     }
-
-    // else if(document.getElementById('myCheck4').checked){
-    //   correct++
-    //   console.log("incorrect" + incorrect);
-    // }
-
   });
-
 
 //  The stop function
 function stop() {
-
   //  Clears our intervalId
   //  We just pass the name of the interval
   //  to the clearInterval function.
@@ -82,17 +94,23 @@ function stop() {
 
 
 $("#donebtn").on("click", function () {
-  $("form").addClass("hidden");
-
+  $("form").hide();
+  $(".results").show();
+  stop();
 });
 
 $("#startbtn").on("click", function () {
+  $("#startbtn").addClass("hidden");
   $("form").show();
   //a.setAttribute("hidden");
   //$( "a" ).hide();
   timer();
-  restart();
 });
+
+$("#restartbtn").on("click",function (){
+restart();
+});
+
 
 });
 
