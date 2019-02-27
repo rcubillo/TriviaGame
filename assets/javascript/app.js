@@ -2,9 +2,10 @@ $(document).ready(function () {
 
 //Variables
 var intervalId;
-var number = 60;
+var number = 5;
 var correct = 0;
 var incorrect = 0;
+var selected=[];
 var unanswered = 0;
 var correctanswers =
 
@@ -38,16 +39,22 @@ function decrement() {
     alert("Time Up!");
     $("form").hide();
     $(".results").show();
+    counting();
   }
 }
 
 function restart(){
-  number = 60;
+  number = 5;
   $("form").show();
   $(".results").addClass("hidden");
   $(".results").hide();
   timer();
 }
+
+$('.question input:checked').each(function() {
+  selected.push($(this).attr('name'));
+  console.log(selected);
+});
 
 //Allowing to choose only one checkbox.
 $("input:checkbox").on('click', function() {
@@ -81,6 +88,22 @@ $("input:checkbox").on('click', function() {
     // }
 
     //$("#log").html($("input:checked").val() + " is checked!");
+    // if (document.getElementById('myCheck1').checked) {
+    //   correct++;
+    //   console.log("correct " + correct);
+    // } else if (document.getElementById('myCheck2').checked) {
+    //   incorrect++;
+    //   console.log("incorrect " + incorrect);
+    // }
+    // else if (document.getElementById('myCheck3').checked) {
+    //   incorrect++;
+    //   console.log("incorrect " + incorrect);
+    // }
+    // console.log(correct);
+    // console.log(incorrect);
+  });
+
+  function counting() {
     if (document.getElementById('myCheck1').checked) {
       correct++;
       console.log("correct " + correct);
@@ -88,19 +111,14 @@ $("input:checkbox").on('click', function() {
       incorrect++;
       console.log("incorrect " + incorrect);
     }
-    else if (document.getElementById('myCheck3').checked) {
-      incorrect++;
-      console.log("incorrect " + incorrect);
-    }
-    console.log(correct);
-    console.log(incorrect);
-  });
+  };
 
-$("#donebtn").on("click", function () {
-  $("form").hide();
-  $(".results").show();
-  stop();
-});
+  $("#donebtn").on("click", function () {
+    counting();
+    $("form").hide();
+    $(".results").show();
+    stop();
+  });
 
 $("#startbtn").on("click", function () {
   $("#startbtn").addClass("hidden");
@@ -113,7 +131,6 @@ $("#startbtn").on("click", function () {
 $("#restartbtn").on("click",function (){
 restart();
 });
-
 });
 
 
