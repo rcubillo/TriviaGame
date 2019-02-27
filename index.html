@@ -35,6 +35,7 @@
         </span>
     </nav>
 
+    <div class="container"> 
     <div class="jumbotron">
         <!-- Start button -->
         <p class="lead">
@@ -46,11 +47,14 @@
         <hr class="my-4">    
 
         <!-- Form that contains all the questions. -->
-        <form id= "questions">
+        <form id="questions">
+            
+             
             <h3>Name the largest freshwater lake in the world?</h3>
-            <input class="question" type="checkbox"  name ="1" id="myCheck1" value="ques1opt1"/> Lake Superior
-            <input class="question" type="checkbox" name ="1" id="myCheck2" value="ques1opt2"/>   Lake Tahoe
-            <input class="question" type="checkbox" name ="1" id="myCheck3" value="ques1opt3"/> Lake Powel
+            <input class="question" type="checkbox" name="1" id="myCheck1" value="ques1opt1" /> Lake Superior
+            <input class="question" type="checkbox" name="1" id="myCheck2" value="ques1opt2" /> Lake Tahoe
+            <input class="question" type="checkbox" name="1" id="myCheck3" value="ques1opt3" /> Lake Powel
+          
 
             <h3>What does CSS stands for?</h3>
             <input class="question" type="checkbox" name ="2"id="myCheck4" value="ques2opt1"/> Cascading Style Sheet
@@ -102,14 +106,14 @@
 
         <!-- Div that shows the results -->
         <div class="results">
-            <h5 id="correct">Correct answer:</h5>
-            <h5 id="incorrect"> Incorrect answers:</h5>
-            <h5 id="unanswered"> Unanswered</h5>
+            <h5 id="correct"></h5>
+            <h5 id="incorrect"></h5>
+            <h5 id="unanswered"></h5>
             <a class="btn btn-primary btn-lg" id="restartbtn" href="#" role="button">Restart</a>
         </div>
         
     </div>
-
+</div>
     <!-- JS Connection -->
     <script src="assets/javascript/app.js">
     </script>

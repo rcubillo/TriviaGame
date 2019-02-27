@@ -1,78 +1,85 @@
 $(document).ready(function () {
 
-//Variables
-var intervalId;
-var number = 5;
-var correct = 0;
-var incorrect = 0;
-var selected=[];
-var unanswered = 0;
-var correctanswers =
-
-//Hidden the form and div when the page loads.
-$("form").addClass("hidden");
-$(".results").addClass("hidden");
+  //Variables
+  var intervalId;
+  var number = 5;
+  var correct = 0;
+  var incorrect = 0;
+  var selected = [];
+  var rightanswers = ["#myCheck1,#myCheck4,#myCheck7,#myCheck11,#myCheck15,#myCheck16,#myCheck20,#myCheck24,#myCheck25"]
+  var incorrectanswers = ["#myCheck2", "#myCheck2", "#myCheck5", "#myCheck6", "#myCheck8", "#myCheck9", "#myCheck10", "#myCheck12", "#myCheck13", "#myCheck14", "#myCheck17", "#myCheck18", "#myCheck19", "#myCheck21", "#myCheck22", "#myCheck23", "#myCheck26", "#myCheck27"];
+  var unanswered = 0;
+  var correctanswers =
 
 
-//Timer
-function timer() {
-  clearInterval(intervalId);
-  intervalId = setInterval(decrement, 1000);
-}
 
-//  The stop function
-function stop() {
-  //  Clears the intervalId
-  clearInterval(intervalId);
-}
-
-function decrement() {
-  //  Decrease number by one.
-  number--;
-  //  Show the number in the #time-left tag.
-  $("#time-left").html("<h2>" + number + "</h2>");
-  //  Once number hits zero...
-  if (number === 0) {
-    //  ...run the stop function.
-    stop();
-    //  Alert the user that time is up.
-    alert("Time Up!");
-    $("form").hide();
-    $(".results").show();
-    counting();
-  }
-}
-
-function restart(){
-  number = 5;
-  $("form").show();
+    //Hidden the form and div when the page loads.
+    $("form").addClass("hidden");
   $(".results").addClass("hidden");
-  $(".results").hide();
-  timer();
-}
 
-$('.question input:checked').each(function() {
-  selected.push($(this).attr('name'));
-  console.log(selected);
-});
 
-//Allowing to choose only one checkbox.
-$("input:checkbox").on('click', function() {
-  // in the handler, 'this' refers to the box clicked on
-  var $box = $(this);
-  if ($box.is(":checked")) {
-    // the name of the box is retrieved using the .attr() method
-    // as it is assumed and expected to be immutable
-    var group = "input:checkbox[name='" + $box.attr("name") + "']";
-    // the checked state of the group/box on the other hand will change
-    // and the current value is retrieved using .prop() method
-    $(group).prop("checked", false);
-    $box.prop("checked", true);
-    console.log(group);
-  } else {
-    $box.prop("checked", false);
+  //Timer
+  function timer() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
   }
-});
+
+  //  The stop function
+  function stop() {
+    //  Clears the intervalId
+    clearInterval(intervalId);
+  }
+
+  function decrement() {
+    //  Decrease number by one.
+    number--;
+    //  Show the number in the #time-left tag.
+    $("#time-left").html("<h2>" + number + "</h2>");
+    //  Once number hits zero...
+    if (number === 0) {
+      //  ...run the stop function.
+      stop();
+      //  Alert the user that time is up.
+      alert("Time Up!");
+      $("form").hide();
+      $(".results").show();
+      counting();
+      $
+    }
+  }
+
+  function restart() {
+    number = 5;
+    correct = 0;
+    incorrect = 0;
+    $("form").show();
+    $(".results").addClass("hidden");
+    $(".results").hide();
+    timer();
+  }
+
+  $('.question input:checked').each(function () {
+    selected.push($(this).attr('name'));
+    console.log(selected);
+  });
+
+  //Allowing to choose only one checkbox.
+  $("input:checkbox").on('click', function () {
+    // in the handler, 'this' refers to the box clicked on
+    var $box = $(this);
+    if ($box.is(":checked")) {
+      // the name of the box is retrieved using the .attr() method
+      // as it is assumed and expected to be immutable
+      var group = "input:checkbox[name='" + $box.attr("name") + "']";
+      // the checked state of the group/box on the other hand will change
+      // and the current value is retrieved using .prop() method
+      $(group).prop("checked", false);
+      $box.prop("checked", true);
+      console.log(group);
+    } else {
+      $box.prop("checked", false);
+    }
+  });
 
   $("input").one("click", function () {
     //var correctopt = document.querySelectorAll("#myCheck1, #myCheck4").checked;
@@ -103,15 +110,20 @@ $("input:checkbox").on('click', function() {
     // console.log(incorrect);
   });
 
-  function counting() {
+   function counting() {    
     if (document.getElementById('myCheck1').checked) {
       correct++;
+      $("#correct").html("Correct answers: " + correct);
       console.log("correct " + correct);
     } else if (document.getElementById('myCheck2').checked) {
       incorrect++;
+      $("#incorrect").html("Incorrect answers: " + incorrect);
       console.log("incorrect " + incorrect);
     }
   };
+
+
+
 
   $("#donebtn").on("click", function () {
     counting();
@@ -120,17 +132,17 @@ $("input:checkbox").on('click', function() {
     stop();
   });
 
-$("#startbtn").on("click", function () {
-  $("#startbtn").addClass("hidden");
-  $("form").show();
-  //a.setAttribute("hidden");
-  //$( "a" ).hide();
-  timer();
-});
+  $("#startbtn").on("click", function () {
+    $("#startbtn").addClass("hidden");
+    $("form").show();
+    //a.setAttribute("hidden");
+    //$( "a" ).hide();
+    timer();
+  });
 
-$("#restartbtn").on("click",function (){
-restart();
-});
+  $("#restartbtn").on("click", function () {
+    restart();
+  });
 });
 
 
