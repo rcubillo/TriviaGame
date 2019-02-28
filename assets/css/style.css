@@ -1,16 +1,59 @@
 body{
+    background-image: url("../images/backg.jpg"); 
+    /* color:white;  */
+    }
+    
+    form{
+        text-align: center;
+    }
+    
+    #time-remain{
+        size:10px;
+    }
+    
+    #title{
+        text-align: center;
+        color: #ffffff;
+        font-family: 'Shadows Into Light', cursive;
+    }
+    
+    #start-btn{
+        margin-top:22%;
+      
+        /* margin-left:20%;
+        margin-right:20%;
+        display:block;
+        margin-bottom:0%;  */
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    #everything{
+        text-align: center;
+    }
+    
+    .question{
+        background-color:rgb(201, 193, 193);
+        padding: 2%;
+    }
 
+.ques-title{
+    color:blue;
 }
 
-form{
-    text-align: center;
+input{
+margin-right:1%;
+margin-left:1%;
 }
 
-#title{
-    text-align: center;
-    color: #ffffff;
-}
-
-.hidden {
-    display: none;
+.answerbox {
+border: 2px solid black;
+width: 40%;
+margin: 0 auto;
+padding: 2%;
+margin-top: 15%;
+font-size: 21px;
+background-color:rgb(201, 193, 193);
 }
