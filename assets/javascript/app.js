@@ -11,10 +11,8 @@ $(document).ready(function () {
   var unanswered = 0;
   var correctanswers =
 
-
-
     //Hidden the form and div when the page loads.
-    $("form").addClass("hidden");
+  $("form").addClass("hidden");
   $(".results").addClass("hidden");
 
 
@@ -60,8 +58,8 @@ $(document).ready(function () {
 
   $('.question input:checked').each(function () {
     selected.push($(this).attr('name'));
-    console.log(selected);
   });
+  
 
   //Allowing to choose only one checkbox.
   $("input:checkbox").on('click', function () {
@@ -121,9 +119,6 @@ $(document).ready(function () {
       console.log("incorrect " + incorrect);
     }
   };
-
-
-
 
   $("#donebtn").on("click", function () {
     counting();
