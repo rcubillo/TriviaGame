@@ -70,7 +70,7 @@ $(document).ready(function () {
   var wrongAnswers = 0;
   var unAnswered = 0;
   //  Set our number counter to 100.
-  var number = 4;
+  var number = 30;
 
   //  Variable that will hold our interval ID when we execute
   //  the "run" function
@@ -104,7 +104,7 @@ $(document).ready(function () {
 
   // Timer run function
   function run() {
-    number = 4;
+    number = 30;
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
   }
@@ -125,7 +125,7 @@ $(document).ready(function () {
       thevida();
       $('#answerScreen').show();
       $('#correctScreen').text(`Correct Answers: ${correctAnswers}`);
-      $('#wrongScreen').text(`Incorrect or Unanswered Answers: ${wrongAnswers}`);
+      $('#wrongScreen').text(` Unanswer or incorrect answer: ${wrongAnswers}`);
       correctAnswers = 0;
       wrongAnswers = 0;
     }
@@ -169,8 +169,8 @@ $(document).ready(function () {
     stop();
 
     $('#correctScreen').text(`Correct Answers: ${correctAnswers}`);
-    $('#wrongScreen').text(`Incorrect Answers: ${wrongAnswers}`);
-    $("#unaswered").text(`Unanswered ${unAnswered}`);
+    $('#wrongScreen').text(`Unanswer or incorrect answer: ${wrongAnswers}`);
+    //$("#unaswered").text(`Unanswered ${unAnswered}`);
     $('#answerScreen').show();
     $('.container').hide();
   });
