@@ -19,11 +19,7 @@ body{
     
     #start-btn{
         margin-top:22%;
-      
-        /* margin-left:20%;
-        margin-right:20%;
-        display:block;
-        margin-bottom:0%;  */
+        width: 20%;
     }
     
     .hidden {
@@ -53,7 +49,15 @@ border: 2px solid black;
 width: 40%;
 margin: 0 auto;
 padding: 2%;
-margin-top: 15%;
+margin-top: 7%;
 font-size: 21px;
 background-color:rgb(201, 193, 193);
+}
+
+.btn-primary {
+    margin-left:40%;
+}
+
+.jumbotron{
+    margin-top: 3%;
 }

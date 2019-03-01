@@ -37,45 +37,30 @@
 
 
     <!-- Main screen -->
+    <!-- Start Button -->
             <div id="mainscreen">
                 <div class="mainbox">
                     <button type="button" id="start-btn" class="btn btn-primary btn-lg btn-block bg-dark">Start</button>
                 </div>
             </div>
 
-    <!-- <div class="container"> -->
-        <!-- <div class="jumbotron"> -->
-            <!-- Div that contains the  answers -->
+        <!-- Responses -->
             <div id="answerScreen">
                 <div class="answerbox">
                     <h2>All done!</h2>
                     <hr />
                     <p id="correctScreen">Correct Answers: </p>
-                    <p id="wrongScreen">Incorrect Answers: </p>
-                    <p id="unaswered">Unanswered: </p>
+                    <p id="wrongScreen">Incorrect or Unanswered Answers: </p>
+                     <!-- <p id="unaswered">Unanswered: </p> +++++ I couldn't make it work-->
                     <button type="button" class="btn btn-primary black-background white" id="restartbtn">Restart</button>
                 </div>
             </div>
 
-            <!-- When times up, this screen will show up.
-            <div id="timesUp">
-                <div class="wrongBox">
-                    <h2 class="up">Times Up!</h2>
-                    <hr />
-                    <p>Here's youre score:</p>
-                    <p id="correctTimesUp">Correct Answers: </p>
-                    <p id="wrongTimesUp">Wrong Answers: </p>
-                </div>
-            </div> -->
-
             <!-- Main container -->
             <div class="container">
-                <div class="row timeRemain">Time Remaining:
-                    <div id="time-remain"></div>
-                </div>
-
-            <div class="container">
                 <div class="jumbotron">
+                    <h4>Time Remaining<div id="time-remain"></div></h4>
+            
                     <div class="questions">
                         <button type="button" class="btn btn-primary black-background white" id="sub-but">Submit</button>
                     </div>
@@ -83,8 +68,7 @@
             </div>
 
             </div>
-        <!-- </div> -->
-    <!-- </div> -->
+
     <!-- JS Connection -->
     <script src="assets/javascript/app.js">
     </script>
